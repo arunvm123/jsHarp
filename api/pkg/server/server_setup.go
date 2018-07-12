@@ -16,7 +16,7 @@ func StartServer() {
 
 	http.Handle("/", handler)
 
-	if err := http.ListenAndServe(":8080", handlers.LoggingHandler(os.Stdout, handler)); err != nil {
+	if err := http.ListenAndServe(":8000", handlers.LoggingHandler(os.Stdout, handler)); err != nil {
 		log.Fatal("Shutting Down", err)
 	}
 }
