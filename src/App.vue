@@ -2,7 +2,7 @@
   <div id="app">
     <my-nav @render-page="renderPage"></my-nav>
     <div class="row">
-       <div class="col"> 
+       <div class="col-md-6"> 
         <span style="color: #33FF00;">&lt!-- HTML --&gt</span>
         <my-editor style="height: 33vh;" v-model="html" language="html" @codeChange="html = $event"></my-editor>
         <span style="color: #33FF00;">/* CSS */</span>
@@ -10,12 +10,12 @@
         <span style="color: #33FF00;">// JS</span>
         <my-editor style="height: 33vh;" v-model="js" language="javascript" @codeChange="js = $event"></my-editor>
        </div>
-      <div class="col">
+      <div class="col-md-6">
         <iframe ref="mold" frameBorder=0 style="height: 100%; width: 100%;" :src="renderURL">
           Your browser doesn't support iframes
         </iframe>
       </div> 
-     </div>
+    </div>
   </div>
 </template>
 
@@ -76,6 +76,5 @@ export default {
 <style>
   body {
     background-color: #1e1e1e;
-    border: 1px solid transparent; 
   }
 </style>
