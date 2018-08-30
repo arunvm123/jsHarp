@@ -1,4 +1,4 @@
-package server
+package operations
 
 type Code struct {
 	HTML string `json:"html,omitempty"`

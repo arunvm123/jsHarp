@@ -2,19 +2,19 @@
   <div id="app">
     <my-nav @render-page="renderPage"></my-nav>
     <div class="row">
-       <div class="col-md-6"> 
+      <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6"> 
         <span style="color: #33FF00;">&lt!-- HTML --&gt</span>
-        <my-editor style="height: 33vh;" v-model="html" language="html" @codeChange="html = $event"></my-editor>
+        <my-editor v-model="html" language="html" @codeChange="html = $event"></my-editor>
         <span style="color: #33FF00;">/* CSS */</span>
-        <my-editor style="height: 33vh;" v-model="css" language="css" @codeChange="css = $event"></my-editor>
+        <my-editor v-model="css" language="css" @codeChange="css = $event"></my-editor>
         <span style="color: #33FF00;">// JS</span>
-        <my-editor style="height: 33vh;" v-model="js" language="javascript" @codeChange="js = $event"></my-editor>
-       </div>
-      <div class="col-md-6">
-        <iframe ref="mold" frameBorder=0 style="height: 100%; width: 100%;" :src="renderURL">
+        <my-editor v-model="js" language="javascript" @codeChange="js = $event"></my-editor> 
+      </div>
+       <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+        <iframe ref="mold" frameBorder=0 style="position: fixed; height: 240vh; width: 100%;" :src="renderURL">
           Your browser doesn't support iframes
         </iframe>
-      </div> 
+      </div>  
     </div>
   </div>
 </template>
@@ -42,9 +42,6 @@ export default {
     }
   },
   methods: {
-    typeLog() {
-      console.log(this.html,this.css,this.js)
-    },
     renderPage() {
       fetch('http://localhost:8000/code',{
         method: 'POST',
@@ -62,12 +59,7 @@ export default {
       this.renderURL = 'http://localhost:8000/render'
       this.$refs.mold.src += ''
     })
-      .catch(error => console.log(error))
-
-      // console.log(this.$refs.mold.contentDocument.getElementsByTagName('body'))
-      // this.$refs.mold.contentDocument.getElementsByTagName('head')[0].innerHTML = (`<style>`+ this.css +`</style> \n <script>` + this.js + `<` + `/script>`)
-      // this.$refs.mold.contentDocument.getElementsByTagName('body')[0].innerHTML = this.html
-      // console.log(this.$refs.mold.contentDocument.getElementsByTagName('head'))
+      .catch(error => console.error(error))
     }
   }
 }
@@ -75,6 +67,9 @@ export default {
 
 <style>
   body {
-    background-color: #1e1e1e;
+     background-color: #1e1e1e;  
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
   }
 </style>
