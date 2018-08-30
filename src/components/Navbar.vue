@@ -1,16 +1,17 @@
 <template>
-  <nav class="navbar navbar-expand-lg border-bottom border-dark">
-  <a class="navbar-brand" href="#">jsHarp</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+ <nav class="navbar">
+  <div>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">jsHarp</a>
+    </div>
+    
     <form class="form-inline my-2 my-lg-0" style="position: absolute; right: 1%;">
-      <button class="btn btn-outline-primary my-2 my-sm-0" @click.prevent="$emit('render-page')">Run</button>
+      <button class="btn" @click.prevent="$emit('render-page')">Run</button>
     </form>
+  
   </div>
-</nav>
+ </nav>
 </template>
 
 <script>
@@ -19,11 +20,23 @@ export default {
 }
 </script>
 
-<style>
-  /* .btn { 
+<style scoped>
+
+  navbar {
     background-color: #1e1e1e;
-  } */
-  .navbar {
+  }
+
+  .btn {
+    margin-top: 20%;
     background-color: #1e1e1e;
+    border-color: #4286f4;
+    color: whitesmoke;
+    transition: 0.5s;
+  }
+ 
+  .btn:hover {
+    border: none;
+    color: whitesmoke;
+    background-color: #4286f4;
   }
 </style>

@@ -1,14 +1,19 @@
 <template>
   <div>
-<monaco
-    :language="language"
-    :code="value"
-    :editorOptions="options"
-    @mounted="onMounted"
-    @codeChange="onCodeChange"
-    >
-</monaco>
-
+    <div row>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <monaco style="margin-bottom: 0;"
+          :language="language"
+          :code="value"
+          :editorOptions="options"
+          @mounted="onMounted"
+          @codeChange="onCodeChange"
+          width="800"
+          height="500"
+          >
+        </monaco>
+      </div>
+    </div> 
   </div>
 </template>
 
@@ -26,7 +31,8 @@ export default {
  data() {
     return {
       options: {
-        selectOnLineNumbers: true
+        selectOnLineNumbers: true,
+        automaticLayout: false
       }
     };
   },

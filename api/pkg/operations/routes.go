@@ -1,10 +1,10 @@
-package server
+package operations
 
 import (
 	"github.com/gorilla/mux"
 )
 
-func initRoutes() *mux.Router {
+func InitRoutes() *mux.Router {
 	m := mux.NewRouter()
 
 	m.Handle("/code", retrieveCode()).Methods("POST")
