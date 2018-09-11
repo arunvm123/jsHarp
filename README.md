@@ -19,3 +19,11 @@ cd api/cmd
 
 go run main.go
 ```
+
+### Run Tests
+
+```bash
+cd api/pkg/operations
+
+go test
+```
