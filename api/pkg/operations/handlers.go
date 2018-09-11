@@ -14,15 +14,15 @@ func retrieveCode() http.Handler {
 			decoder := json.NewDecoder(r.Body)
 			err := decoder.Decode(&code)
 			if err != nil {
-				w.WriteHeader(http.StatusInternalServerError)
-				w.Write([]byte(err.Error()))
+				w.WriteHeader(http.StatusBadRequest)
+				w.Write([]byte("Error in request body data"))
 				return
 			}
 
 			fp, err := os.OpenFile("render.html", os.O_RDWR, 0644)
 			if err != nil {
 				w.WriteHeader(http.StatusInternalServerError)
-				w.Write([]byte(err.Error()))
+				w.Write([]byte("Could not open file"))
 				return
 			}
 			defer fp.Close()
@@ -31,7 +31,7 @@ func retrieveCode() http.Handler {
 			err = fp.Truncate(0)
 			if err != nil {
 				w.WriteHeader(http.StatusInternalServerError)
-				w.Write([]byte(err.Error()))
+				w.Write([]byte("Error in clearing file"))
 				return
 			}
 

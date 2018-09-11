@@ -2,7 +2,7 @@
   <div id="app">
     <my-nav @render-page="renderPage"></my-nav>
     <div class="row">
-      <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6"> 
+      <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
         <span style="color: #33FF00;">&lt!-- HTML --&gt</span>
         <my-editor v-model="html" language="html" @codeChange="html = $event"></my-editor>
         <span style="color: #33FF00;">/* CSS */</span>
